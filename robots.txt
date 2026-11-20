@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alperatav.github.io/atav-tasks-website/sitemap.xml
