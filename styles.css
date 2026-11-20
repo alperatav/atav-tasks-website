@@ -19,6 +19,7 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
+  overflow-x: hidden;
   color: var(--ink);
   background: var(--surface);
   font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -215,20 +216,19 @@ blockquote { margin: 34px 0; padding: 24px 26px; border-left: 4px solid var(--pu
 
 @media (max-width: 640px) {
   :root { --shell: calc(100% - 24px); --radius-lg: 24px; }
-  .site-header { width: calc(100% - 20px); margin-top: 10px; top: 8px; padding-inline: 14px; border-radius: 17px; }
+  .site-header { width: calc(100% - 20px); margin-top: 10px; position: relative; top: auto; padding-inline: 14px; border-radius: 17px; }
   .brand { font-size: .98rem; }
   .brand-mark { width: 35px; height: 35px; }
-  .hero { min-height: auto; padding-block: 55px 50px; }
+  .hero { min-height: auto; padding-block: 55px 50px; display: block; overflow: visible; }
+  .hero-copy { position: relative; z-index: 4; }
   h1 { font-size: clamp(2.85rem, 14vw, 4rem); }
   h2 { font-size: clamp(2.15rem, 10vw, 3.15rem); }
-  .hero-visual { min-height: 495px; }
-  .phone { width: 190px; border-radius: 31px; padding: 6px; }
+  .hero-visual { min-height: 0; height: auto; margin-top: 44px; display: flex; justify-content: center; overflow: visible; }
+  .hero-glow { width: 300px; height: 300px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+  .phone { width: min(62vw, 220px); position: relative; border-radius: 31px; padding: 6px; }
   .phone img { border-radius: 25px; }
-  .phone-front { right: 2%; }
-  .phone-back { left: 1%; }
-  .floating-label { font-size: .74rem; }
-  .label-top { top: 68px; left: 0; }
-  .label-bottom { right: 0; bottom: 88px; }
+  .phone-front { top: auto; right: auto; transform: none; }
+  .phone-back, .floating-label { display: none; }
   .trust-strip { padding: 12px 18px; grid-template-columns: 1fr; }
   .trust-strip div { padding: 15px 4px; border-right: 0; border-bottom: 1px solid var(--line); }
   .trust-strip div:last-child { border-bottom: 0; }
@@ -237,9 +237,12 @@ blockquote { margin: 34px 0; padding: 24px 26px; border-left: 4px solid var(--pu
   .steps-grid, .audience-grid { grid-template-columns: 1fr; }
   .step-card { min-height: 225px; }
   .step-icon { margin-bottom: 28px; }
-  .feature-row { min-height: auto; margin-top: 80px; gap: 38px; }
+  .feature-row { min-height: auto; margin-top: 68px; gap: 38px; }
   .feature-copy { text-align: left; }
-  .product-phone, .gmail-phone, .showcase-phone { width: min(82vw, 300px); }
+  .product-phone, .gmail-phone, .showcase-phone { width: min(64vw, 230px); padding: 7px; border-radius: 36px; }
+  .product-phone img, .gmail-phone img, .showcase-phone img { border-radius: 29px; }
+  .gmail-phone figcaption { padding-inline: 7px; font-size: .72rem; }
+  blockquote { padding: 20px; font-size: 1.08rem; }
   .audience-card { min-height: 350px; padding: 28px; }
   .audience-label { margin-bottom: 52px; }
   .vision-flow { padding: 16px; }
